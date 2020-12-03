@@ -1,0 +1,32 @@
+//Sana Yasamani Khiabani 3180650
+// Sample 1, for Assignment 4.2 !
+
+ int blue = 13; //Where blue pin is.
+ int white = 12; // Where white pin is.
+
+#define ctsPin 3 //This is where the sensor is.
+ 
+ void setup()
+ {  
+     Serial.begin(600); //I Just brought it lower to test things, it helped with the sensitivity thus I kept it here.
+       pinMode(blue, OUTPUT); //From here on out will be the base code in order to make it light up when the touch sensor is activated. 
+       pinMode(white, OUTPUT);
+       pinMode(ctsPin, INPUT);
+     } 
+  void loop() 
+    { 
+      int ctsValue = digitalRead(ctsPin); 
+      if (ctsValue == HIGH)
+        {  
+           digitalWrite(blue, HIGH);  
+           digitalWrite(white, HIGH);
+           Serial.println("TOUCHED");
+           }  
+     else
+        {    
+         digitalWrite(blue, LOW);
+         digitalWrite(white, LOW);       
+             Serial.println("not touched"); 
+          }  
+      delay(5);  
+      }
