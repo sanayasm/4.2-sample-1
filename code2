@@ -1,0 +1,38 @@
+//Sana Yasamani Khiabani, 3180650
+//This sample is using a touch sensor to let a row of colours flow, like a little traffic light. 
+
+#define ctsPin 3 //This is the touch sensor. 
+
+int RED = 13;// This is the first, red led. 
+int YELLOW = 10;//This is the second, yellow led. 
+int GREEN = 8;// This is the last, green led. Overall much like a stop, ready, go lighting sequence. 
+
+void setup() {
+  Serial.begin(9600);
+   pinMode(RED, OUTPUT);
+   pinMode(YELLOW, OUTPUT);
+   pinMode(GREEN, OUTPUT);
+   pinMode(ctsPin, INPUT);
+}
+
+
+void loop() {
+
+  int ctsValue = digitalRead (ctsPin);
+  if (ctsValue == HIGH)
+  
+  {
+  digitalWrite(RED, HIGH);    // Turn on the red LED 
+  delay(200);                  // Wait for 200ms
+  digitalWrite(YELLOW, HIGH);    // This repeats for the rest of the LEDs. 
+  delay(200);                      
+  digitalWrite(GREEN, HIGH);  
+  delay(200);                 
+  digitalWrite(RED, LOW);     // Turn off red LED
+  delay(200);                  // Wait for 200ms
+  digitalWrite(YELLOW, LOW);     // This repeats for the rest of the LEDs
+  delay(200);                  
+  digitalWrite(GREEN, LOW);    
+  delay(200);                  
+}
+}
