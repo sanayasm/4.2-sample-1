@@ -1,0 +1,26 @@
+//Sana Yasamani Khiabani 
+//3180650
+
+const int BUTTON_PIN = 7;  // The velostat
+
+const int LED_PIN =  13;   // The LED
+
+
+int buttonState = 0;   
+
+void setup() {
+ 
+  pinMode(LED_PIN, OUTPUT);
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+}
+
+void loop() {
+  
+  buttonState = digitalRead(BUTTON_PIN);
+
+  // control LED according to the state of button
+  if(buttonState == LOW)         // When the velostat are together 
+    digitalWrite(LED_PIN, HIGH); // The LED lights up
+  else                           // When the velostat are away
+    digitalWrite(LED_PIN, LOW);  // The LED turns off
+}
